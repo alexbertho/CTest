@@ -7,16 +7,20 @@ typedef struct {
     int resultat;
 } Test;
 
+typedef struct NoeudTest {
+    Test test;
+    struct NoeudTest *suivant;
+} NoeudTest;
+
 typedef struct {
     char *nom;
-    Test *tests;
+    NoeudTest *tests;
     int nb_tests;
     int nb_tests_echoues;
     int executed;
-    int capacite;
 } GroupeTest;
 
-GroupeTest* groupe_test_creer(const char *nom, int capacite_initiale);
+GroupeTest* groupe_test_creer(const char *nom);
 int groupe_test_ajouter(GroupeTest *groupe, const char *nom_test, int (*fonction_test)(void));
 void groupe_test_executer(GroupeTest *groupe);
 void groupe_test_afficher_resultats(GroupeTest *groupe);
