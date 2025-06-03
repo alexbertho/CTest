@@ -1,0 +1,10 @@
+*.d
+*.o
+main
+bin/*
+build/*
+.vscode/*
+TODO
+*.pdf
+\#*
+.\#*
